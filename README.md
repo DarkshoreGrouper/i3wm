@@ -10,4 +10,6 @@ scripts -> Anywhere you like, just change the path in the i3 config
 
 ### Dependencies:
 YAD<br />
-Font Awesome<br />  
+Font Awesome<br />
+imagemagik<br />
+scrot<br />
