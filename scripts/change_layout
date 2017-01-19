@@ -1,0 +1,9 @@
+#!/bin/bash
+layout=$(setxkbmap -query | grep layout | grep -oE '\w+$') 
+if [ "$layout" == "us" ]; then
+	new_layout=il
+elif [ "$layout" == "il" ]; then
+	new_layout=us
+fi
+
+setxkbmap $new_layout && pkill -RTMIN+12 i3blocks
