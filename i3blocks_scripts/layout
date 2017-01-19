@@ -1,0 +1,2 @@
+#!/bin/bash
+setxkbmap -query | grep layout | grep -oE '\w+$' | tr a-z A-Z
