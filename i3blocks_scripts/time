@@ -1,0 +1,5 @@
+echo $(date '+%Y-%m-%d %H:%M:%S')
+
+if [ $BLOCK_BUTTON -eq 1 ]; then
+        yad --calendar --title="Calendar" --button=gtk-ok
+fi

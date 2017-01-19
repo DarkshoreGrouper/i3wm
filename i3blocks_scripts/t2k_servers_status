@@ -1,0 +1,34 @@
+#!/bin/bash
+
+OUTPUT=~/staging_status.html
+STATUS_COLOR="#00C900"
+
+wget $BLOCK_INSTANCE -O $OUTPUT -q -T 1
+if [[ $? -eq 0 ]]; then
+	ACTIVE=$(grep "Active</td>" $OUTPUT | wc -l)
+	INACTIVE=$(grep "INACTIVE</td>" $OUTPUT | wc -l)
+
+	if [[ $INACTIVE -ne 0 ]]; then
+		STATUS_COLOR="#C90000"
+	fi
+
+	echo "  $INACTIVE   $ACTIVE  "
+else
+	STATUS_COLOR="#C90000"
+	echo "DOWN  "
+fi
+
+echo # Empty short text
+
+# color
+echo $STATUS_COLOR
+
+URI=$BLOCK_INSTANCE
+if [[ $URI != http* ]]; then
+	URI="http://$BLOCK_INSTANCE"
+fi
+
+if [[ $BLOCK_BUTTON -eq 1 ]]; then
+	yad --html --uri=$URI --title=$URI --width=1800 --height=700 --button=gtk-ok 
+fi
+
