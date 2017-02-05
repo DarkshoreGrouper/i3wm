@@ -12,7 +12,7 @@ if [[ $? -eq 0 ]]; then
 	if [[ "$LAST_PIPELINE_RESULT" == "FAILED" ]]; then
 		STATUS_COLOR="#C90000"
 	elif [[ "$LAST_PIPELINE_RESULT" == "RUNNING" ]]; then
-		STATUS_COLOR="#0000C9"
+		STATUS_COLOR="#8989ff"
 	fi	
 else
 	STATUS_COLOR="#C90000"
