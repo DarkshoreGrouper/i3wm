@@ -115,7 +115,7 @@ bindsym $mod+a focus parent
 
 set $workspace1 "1: Chrome"
 set $workspace2 "2: Dev Tools"
-set $workspace3 "3: WebStorm"
+set $workspace3 "3: VSCode"
 set $workspace4 "4: Terminal"
 set $workspace5 "5: Git"
 set $workspace6 "6: Music"
@@ -155,9 +155,12 @@ assign [class="Google-chrome"] $workspace1
 for_window [class="Google-chrome"] focus
 for_window [class="Google-chrome"] floating disable
 
-assign [class="jetbrains-webstorm"] $workspace3
-for_window [class="jetbrains-webstorm"] focus
+#assign [class="jetbrains-webstorm"] $workspace3
+#for_window [class="jetbrains-webstorm"] focus
 #for_window [class="jetbrains-webstorm"] floating disable
+
+assign [class="Code"] $workspace3
+for_window [class="Code"] focus
 
 assign [class="Termite"] $workspace4
 for_window [class="Termite"] focus
@@ -166,7 +169,7 @@ assign [class="GitKraken"] $workspace5
 for_window [class="GitKraken"] focus
 
 for_window [class="Yad"] floating enable
-
+for_window [class="Thunar"] floating enable
 for_window [class="Galculator"] floating enable
 
 assign [class="^rdesktop"] $workspace10

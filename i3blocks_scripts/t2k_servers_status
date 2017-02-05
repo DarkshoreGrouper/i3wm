@@ -12,7 +12,7 @@ if [[ $? -eq 0 ]]; then
 		STATUS_COLOR="#C90000"
 	fi
 
-	echo "  $INACTIVE   $ACTIVE  "
+	echo "  $ACTIVE  "
 else
 	STATUS_COLOR="#C90000"
 	echo "DOWN  "
