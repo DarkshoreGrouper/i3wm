@@ -4,6 +4,7 @@ URI="http://build.timetoknow.com:8080/view/int%20monitoring/?fullscreen=true"
 PIPELINES_URL="http://build.timetoknow.com:8080/view/int%20monitoring/api/json?page=1&component=1&fullscreen=true"
 OUTPUT=~/int_monitor.html
 STATUS_COLOR="#00C900"
+RUNNING_PERCENTAGE=""
 
 wget $PIPELINES_URL -O $OUTPUT -q -T 1
 if [[ $? -eq 0 ]]; then
@@ -13,12 +14,13 @@ if [[ $? -eq 0 ]]; then
 		STATUS_COLOR="#C90000"
 	elif [[ "$LAST_PIPELINE_RESULT" == "RUNNING" ]] || [[ "$LAST_PIPELINE_RESULT" == "QUEUED" ]]; then
 		STATUS_COLOR="#8989ff"
+		RUNNING_PERCENTAGE=" $(grep -oP '(?<=percentage":).*?(?=})' $OUTPUT)%"
 	fi	
 else
 	STATUS_COLOR="#C90000"
 fi
 
-echo " Mon"
+echo " Mon $RUNNING_PERCENTAGE"
 echo # Empty short text
 
 # color
@@ -27,4 +29,3 @@ echo $STATUS_COLOR
 if [[ $BLOCK_BUTTON -eq 1 ]]; then
 	yad --html --uri=$URI --title="Int Monitor" --width=1800 --height=700 --button=gtk-ok 
 fi
-
