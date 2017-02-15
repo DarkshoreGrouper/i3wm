@@ -235,7 +235,7 @@ exec nm-applet
 bindsym $mod+shift+x exec ~/scripts/screen_lock ~/Pictures/lock.png
 
 # bind sleep
-bindsym $mod+shift+Escape exec systemctl suspend && i3lock -c 3f3f3f -n
+bindsym $mod+shift+Escape exec ~/scripts/eng_layout && systemctl suspend && i3lock -c 3f3f3f -n
 
 # Set Background
 exec_always feh --bg-scale /home/alon/Pictures/batman.jpg
@@ -251,8 +251,8 @@ set $update_vol && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-bindsym $mod+plus exec --no-startup-id pactl set-sink-volume 1 +5% $update_vol
-bindsym $mod+minus exec --no-startup-id pactl set-sink-volume 1 -5% $update_vol
+bindsym $mod+plus exec --no-startup-id pactl set-sink-volume 0 +5% $update_vol
+bindsym $mod+minus exec --no-startup-id pactl set-sink-volume 0 -5% $update_vol
 
 # Input methods change
 bindsym $mod+ctrl+space exec ~/scripts/change_layout
