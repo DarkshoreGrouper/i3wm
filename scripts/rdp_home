@@ -1,0 +1,2 @@
+#rdesktop darkshoregrouper2.ddns.net -K -g 1920x1080
+xfreerdp +clipboard -z -grab-keyboard /v:darkshoregrouper2.ddns.net /u:alon /d:alon-pc /size:1920x1080 /sound
