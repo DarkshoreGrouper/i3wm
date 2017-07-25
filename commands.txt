@@ -1,0 +1,30 @@
+pacman downgrade:
+in /var/cache/pacman/pkg/ find the file of the version you want or download it from https://archive.archlinux.org/ and
+sudo pacman -U file_name
+then, add the package name to IgnorePkg in /etc/pacman.conf
+
+find origin of hard link:
+ls -i to see the inode number of a file
+find / -inum {the number you found} to find all files with the same inode number
+
+lspci -k
+lsblk -f
+
+ip addr
+
+netctl
+
+systemd
+systemct
+
+sudo systemctl enable dhcpcd@enp0s25.service
+sudo systemctl start dhcpcd@enp0s25.service
+
+sudo netctl start wlo1-t2k-wifi
+
+sudo tee /sys/class/backlight/intel_backlight/brightness <<< 600
+
+see kernel flags that were used on boot:
+cat /proc/cmdline
+
+grep "td style" staging_status.html | sed -E 's/.*>(.*)<.*/\1/' | paste -d '\t' - -
