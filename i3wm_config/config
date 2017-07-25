@@ -60,8 +60,9 @@ client.urgent             $urgent-bg-color    $urgent-bg-color   $text-color    
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+#bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 300 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 #bindsym $mod+d exec albert
+bindsym $mod+d exec synapse
 
 # change focus
 bindsym $mod+j focus left
@@ -172,6 +173,10 @@ for_window [class="Yad"] floating enable
 for_window [class="Thunar"] floating enable
 for_window [class="Galculator"] floating enable
 
+assign [class="xfreerdp"] $workspace10
+for_window [class="xfreerdp"] fullscreen enable
+for_window [class="xfreerdp"] focus
+
 assign [class="^rdesktop"] $workspace10
 for_window [class="^rdesktop"] fullscreen enable
 for_window [class="^rdesktop"] focus
@@ -232,7 +237,8 @@ exec nm-applet
 
 # bind i3lock
 #bindsym $mod+shift+x exec i3lock -c 3f3f3f -n
-bindsym $mod+shift+x exec ~/scripts/screen_lock ~/Pictures/lock.png
+#bindsym $mod+shift+x exec ~/scripts/screen_lock ~/Pictures/lock.png
+bindsym $mod+shift+x exec ~/extra_pkgs/i3lock-fancy-multimonitor/lock
 
 # bind sleep
 bindsym $mod+shift+Escape exec ~/scripts/eng_layout && systemctl suspend && i3lock -c 3f3f3f -n
