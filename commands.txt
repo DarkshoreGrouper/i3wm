@@ -28,3 +28,5 @@ see kernel flags that were used on boot:
 cat /proc/cmdline
 
 grep "td style" staging_status.html | sed -E 's/.*>(.*)<.*/\1/' | paste -d '\t' - -
+
+yaourt -Syua --noconfirm
